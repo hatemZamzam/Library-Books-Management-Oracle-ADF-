@@ -1,0 +1,1470 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" binding="#{backingBeanScope.backing_Library.d1}">
+      <af:messages binding="#{backingBeanScope.backing_Library.m1}" id="m1"/>
+      <af:form id="f1" binding="#{backingBeanScope.backing_Library.f1}">
+        <af:panelStretchLayout binding="#{backingBeanScope.backing_Library.psl1}"
+                               id="psl1" topHeight="117px" endWidth="267px"
+                               startWidth="216px">
+          <f:facet name="bottom"/>
+          <f:facet name="center">
+            <af:panelTabbed binding="#{backingBeanScope.backing_Library.pt1}"
+                            id="pt1" styleClass="AFStretchWidth">
+              <af:showDetailItem text="Books"
+                                 binding="#{backingBeanScope.backing_Library.sdi5}"
+                                 id="sdi5" stretchChildren="first">
+                <af:panelSplitter binding="#{backingBeanScope.backing_Library.ps5}"
+                                  id="ps5" orientation="vertical">
+                  <f:facet name="first">
+                    <af:panelGroupLayout layout="vertical"
+                                         binding="#{backingBeanScope.backing_Library.pgl6}"
+                                         id="pgl6">
+                      <af:panelHeader text="Books"
+                                      binding="#{backingBeanScope.backing_Library.ph5}"
+                                      id="ph5">
+                        <af:query id="q1" headerText="Search" disclosed="true"
+                                  value="#{bindings.ImplicitViewCriteriaQuery3.queryDescriptor}"
+                                  model="#{bindings.ImplicitViewCriteriaQuery3.queryModel}"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery3.processQuery}"
+                                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery3.processQueryOperation}"
+                                  binding="#{backingBeanScope.backing_Library.q1}"/>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelDashboard binding="#{backingBeanScope.backing_Library.pd5}"
+                                       id="pd5" columns="1" rowHeight="400px"
+                                       inlineStyle="text-align:center; vertical-align:middle;">
+                      <af:panelBox text="The Book"
+                                   binding="#{backingBeanScope.backing_Library.pb2}"
+                                   id="pb2" background="light">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.BooksView1.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.BooksView1.rangeSize}"
+                                  emptyText="#{bindings.BooksView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.BooksView1.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.BooksView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.BooksView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.BooksView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BooksView1.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t2}"
+                                  id="t2" partialTriggers="::q1 ::cb23 ::cb24">
+                          <af:column sortProperty="BookId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView1.hints.BookId.label}"
+                                     id="c2">
+                            <af:outputText value="#{row.BookId}" id="ot5"/>
+                          </af:column>
+                          <af:column sortProperty="Title" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView1.hints.Title.label}"
+                                     id="c3">
+                            <af:outputText value="#{row.Title}" id="ot3"/>
+                          </af:column>
+                          <af:column sortProperty="Language" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView1.hints.Language.label}"
+                                     id="c1">
+                            <af:outputText value="#{row.Language}" id="ot1"/>
+                          </af:column>
+                          <af:column sortProperty="Availability"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.BooksView1.hints.Availability.label}"
+                                     id="c4">
+                            <af:outputText value="#{row.Availability}"
+                                           id="ot4"/>
+                          </af:column>
+                          <af:column sortProperty="Price" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView1.hints.Price.label}"
+                                     id="c5">
+                            <af:outputText value="#{row.Price}" id="ot2">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BooksView1.hints.Price.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c23" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb1">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p4"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl11}"
+                                           id="pgl11" layout="vertical">
+                        <af:commandButton actionListener="#{bindings.CreateInsert3.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert3.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb24}"
+                                          id="cb24"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb25}"
+                                          id="cb25"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb26}"
+                                          id="cb26">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                    </af:panelDashboard>
+                  </f:facet>
+                </af:panelSplitter>
+              </af:showDetailItem>
+              <af:showDetailItem text="Publishers"
+                                 binding="#{backingBeanScope.backing_Library.sdi6}"
+                                 id="sdi6" stretchChildren="first">
+                <af:panelSplitter binding="#{backingBeanScope.backing_Library.ps6}"
+                                  id="ps6" orientation="vertical">
+                  <f:facet name="first">
+                    <af:panelGroupLayout layout="vertical"
+                                         binding="#{backingBeanScope.backing_Library.pgl7}"
+                                         id="pgl7">
+                      <af:panelHeader text="Publisher"
+                                      binding="#{backingBeanScope.backing_Library.ph6}"
+                                      id="ph6">
+                        <af:query id="q2" headerText="Search" disclosed="true"
+                                  value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                  model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                  binding="#{backingBeanScope.backing_Library.q2}"/>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelDashboard binding="#{backingBeanScope.backing_Library.pd6}"
+                                       id="pd6" columns="2" rowHeight="400px">
+                      <af:panelBox text="Publishers"
+                                   binding="#{backingBeanScope.backing_Library.pb3}"
+                                   id="pb3">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.PublisherView11.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.PublisherView11.rangeSize}"
+                                  emptyText="#{bindings.PublisherView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.PublisherView11.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.PublisherView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.PublisherView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.PublisherView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.PublisherView11.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t3}"
+                                  id="t3"
+                                  partialTriggers="::q2 ::cb18 ::cb19 ::cb23">
+                          <af:column sortProperty="PublisherId"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.PublisherView11.hints.PublisherId.label}"
+                                     id="c31">
+                            <af:outputText value="#{row.PublisherId}"
+                                           id="ot25"/>
+                          </af:column>
+                          <af:column sortProperty="Name" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.PublisherView11.hints.Name.label}"
+                                     id="c28">
+                            <af:outputText value="#{row.Name}" id="ot28"/>
+                          </af:column>
+                          <af:column sortProperty="Address" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.PublisherView11.hints.Address.label}"
+                                     id="c27">
+                            <af:outputText value="#{row.Address}" id="ot24"/>
+                          </af:column>
+                          <af:column sortProperty="Email" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.PublisherView11.hints.Email.label}"
+                                     id="c30">
+                            <af:outputText value="#{row.Email}" id="ot26"/>
+                          </af:column>
+                          <af:column sortProperty="PhoneNumber"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.PublisherView11.hints.PhoneNumber.label}"
+                                     id="c29">
+                            <af:outputText value="#{row.PhoneNumber}" id="ot27">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.PublisherView11.hints.PhoneNumber.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c6" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb2">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p3"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelBox text="Publisher Books"
+                                   binding="#{backingBeanScope.backing_Library.pb4}"
+                                   id="pb4">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.BooksView2.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.BooksView2.rangeSize}"
+                                  emptyText="#{bindings.BooksView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.BooksView2.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.BooksView2Query.queryDescriptor}"
+                                  queryListener="#{bindings.BooksView2Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.BooksView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BooksView2.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t4}"
+                                  id="t4"
+                                  partialTriggers="::t3 ::cb39 ::cb40 ::cb23">
+                          <af:column sortProperty="BookId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView2.hints.BookId.label}"
+                                     id="c35">
+                            <af:outputText value="#{row.BookId}" id="ot32"/>
+                          </af:column>
+                          <af:column sortProperty="Title" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView2.hints.Title.label}"
+                                     id="c33">
+                            <af:outputText value="#{row.Title}" id="ot31"/>
+                          </af:column>
+                          <af:column sortProperty="Language" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView2.hints.Language.label}"
+                                     id="c32">
+                            <af:outputText value="#{row.Language}" id="ot29"/>
+                          </af:column>
+                          <af:column sortProperty="Availability"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.BooksView2.hints.Availability.label}"
+                                     id="c34">
+                            <af:outputText value="#{row.Availability}"
+                                           id="ot30"/>
+                          </af:column>
+                          <af:column sortProperty="Price" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView2.hints.Price.label}"
+                                     id="c36">
+                            <af:outputText value="#{row.Price}" id="ot33">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BooksView2.hints.Price.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c7" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb3">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p7"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl5}"
+                                           id="pgl5">
+                        <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert2.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb19}"
+                                          id="cb19"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb20}"
+                                          id="cb20"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb21}"
+                                          id="cb21">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl18}"
+                                           id="pgl18">
+                        <af:commandButton actionListener="#{bindings.CreateInsert6.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert6.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb40}"
+                                          id="cb40"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb41}"
+                                          id="cb41"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb42}"
+                                          id="cb42">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                    </af:panelDashboard>
+                  </f:facet>
+                </af:panelSplitter>
+              </af:showDetailItem>
+              <af:showDetailItem text="Authors"
+                                 binding="#{backingBeanScope.backing_Library.sdi7}"
+                                 id="sdi7" stretchChildren="first">
+                <af:panelSplitter binding="#{backingBeanScope.backing_Library.ps7}"
+                                  id="ps7" orientation="vertical">
+                  <f:facet name="first">
+                    <af:panelGroupLayout layout="vertical"
+                                         binding="#{backingBeanScope.backing_Library.pgl8}"
+                                         id="pgl8">
+                      <af:panelHeader text="Author"
+                                      binding="#{backingBeanScope.backing_Library.ph7}"
+                                      id="ph7">
+                        <af:query id="q3" headerText="Search" disclosed="true"
+                                  value="#{bindings.ImplicitViewCriteriaQuery1.queryDescriptor}"
+                                  model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}"
+                                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery1.processQueryOperation}"
+                                  binding="#{backingBeanScope.backing_Library.q3}"/>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelDashboard binding="#{backingBeanScope.backing_Library.pd7}"
+                                       id="pd7" columns="2" rowHeight="400px">
+                      <af:panelBox text="Authors"
+                                   binding="#{backingBeanScope.backing_Library.pb11}"
+                                   id="pb11">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.AuthorView11.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.AuthorView11.rangeSize}"
+                                  emptyText="#{bindings.AuthorView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.AuthorView11.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.AuthorView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.AuthorView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.AuthorView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.AuthorView11.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t11}"
+                                  id="t11"
+                                  partialTriggers="::q3 ::cb13 ::cb9 ::cb23">
+                          <af:column sortProperty="AuthorId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.AuthorView11.hints.AuthorId.label}"
+                                     id="c39">
+                            <af:outputText value="#{row.AuthorId}" id="ot36"/>
+                          </af:column>
+                          <af:column sortProperty="Name" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.AuthorView11.hints.Name.label}"
+                                     id="c37">
+                            <af:outputText value="#{row.Name}" id="ot38"/>
+                          </af:column>
+                          <af:column sortProperty="Address" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.AuthorView11.hints.Address.label}"
+                                     id="c41">
+                            <af:outputText value="#{row.Address}" id="ot35"/>
+                          </af:column>
+                          <af:column sortProperty="Email" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.AuthorView11.hints.Email.label}"
+                                     id="c40">
+                            <af:outputText value="#{row.Email}" id="ot34"/>
+                          </af:column>
+                          <af:column sortProperty="PhoneNumber"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.AuthorView11.hints.PhoneNumber.label}"
+                                     id="c38">
+                            <af:outputText value="#{row.PhoneNumber}" id="ot37">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.AuthorView11.hints.PhoneNumber.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c8" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb4">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p1"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelBox text="Author Books"
+                                   binding="#{backingBeanScope.backing_Library.pb12}"
+                                   id="pb12">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.BooksView3.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.BooksView3.rangeSize}"
+                                  emptyText="#{bindings.BooksView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.BooksView3.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.BooksView3Query.queryDescriptor}"
+                                  queryListener="#{bindings.BooksView3Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.BooksView3.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BooksView3.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t12}"
+                                  id="t12"
+                                  partialTriggers="::t11 ::cb28 ::cb32 ::cb23">
+                          <af:column sortProperty="BookId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView3.hints.BookId.label}"
+                                     id="c45">
+                            <af:outputText value="#{row.BookId}" id="ot41"/>
+                          </af:column>
+                          <af:column sortProperty="Title" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView3.hints.Title.label}"
+                                     id="c42">
+                            <af:outputText value="#{row.Title}" id="ot40"/>
+                          </af:column>
+                          <af:column sortProperty="Language" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView3.hints.Language.label}"
+                                     id="c43">
+                            <af:outputText value="#{row.Language}" id="ot43"/>
+                          </af:column>
+                          <af:column sortProperty="Availability"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.BooksView3.hints.Availability.label}"
+                                     id="c46">
+                            <af:outputText value="#{row.Availability}"
+                                           id="ot39"/>
+                          </af:column>
+                          <af:column sortProperty="Price" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView3.hints.Price.label}"
+                                     id="c44">
+                            <af:outputText value="#{row.Price}" id="ot42">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BooksView3.hints.Price.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c9" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb5">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p5"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl12}"
+                                           id="pgl12">
+                        <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb9}"
+                                          id="cb9"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb14}"
+                                          id="cb14"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb27}"
+                                          id="cb27">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl13}"
+                                           id="pgl13">
+                        <af:commandButton actionListener="#{bindings.CreateInsert4.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert4.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb28}"
+                                          id="cb28"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb29}"
+                                          id="cb29"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb30}"
+                                          id="cb30">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                    </af:panelDashboard>
+                  </f:facet>
+                </af:panelSplitter>
+              </af:showDetailItem>
+              <af:showDetailItem text="Members"
+                                 binding="#{backingBeanScope.backing_Library.sdi8}"
+                                 id="sdi8" stretchChildren="first">
+                <af:panelSplitter binding="#{backingBeanScope.backing_Library.ps8}"
+                                  id="ps8" orientation="vertical">
+                  <f:facet name="first">
+                    <af:panelGroupLayout layout="vertical"
+                                         binding="#{backingBeanScope.backing_Library.pgl9}"
+                                         id="pgl9">
+                      <af:panelHeader text="Member"
+                                      binding="#{backingBeanScope.backing_Library.ph8}"
+                                      id="ph8">
+                        <af:query id="q4" headerText="Search" disclosed="true"
+                                  value="#{bindings.ImplicitViewCriteriaQuery2.queryDescriptor}"
+                                  model="#{bindings.ImplicitViewCriteriaQuery2.queryModel}"
+                                  queryListener="#{bindings.ImplicitViewCriteriaQuery2.processQuery}"
+                                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery2.processQueryOperation}"
+                                  binding="#{backingBeanScope.backing_Library.q4}"/>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelDashboard binding="#{backingBeanScope.backing_Library.pd8}"
+                                       id="pd8" columns="2" rowHeight="400px">
+                      <af:panelBox text="Members"
+                                   binding="#{backingBeanScope.backing_Library.pb13}"
+                                   id="pb13">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.MemberView11.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.MemberView11.rangeSize}"
+                                  emptyText="#{bindings.MemberView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.MemberView11.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.MemberView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.MemberView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.MemberView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.MemberView11.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t13}"
+                                  id="t13"
+                                  partialTriggers="::q4 ::cb11 ::cb10 ::cb23">
+                          <af:column sortProperty="MemberId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.MemberId.label}"
+                                     id="c51">
+                            <af:outputText value="#{row.MemberId}" id="ot47"/>
+                          </af:column>
+                          <af:column sortProperty="Name" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.Name.label}"
+                                     id="c50">
+                            <af:outputText value="#{row.Name}" id="ot48"/>
+                          </af:column>
+                          <af:column sortProperty="Address" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.Address.label}"
+                                     id="c48">
+                            <af:outputText value="#{row.Address}" id="ot50"/>
+                          </af:column>
+                          <af:column sortProperty="Email" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.Email.label}"
+                                     id="c49">
+                            <af:outputText value="#{row.Email}" id="ot45"/>
+                          </af:column>
+                          <af:column sortProperty="PhoneNumber"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.PhoneNumber.label}"
+                                     id="c53">
+                            <af:outputText value="#{row.PhoneNumber}" id="ot49">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.MemberView11.hints.PhoneNumber.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column sortProperty="MembershipDate"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.MembershipDate.label}"
+                                     id="c52">
+                            <f:facet name="filter">
+                              <af:inputDate value="#{vs.filterCriteria.MembershipDate}"
+                                            binding="#{backingBeanScope.backing_Library.id1}"
+                                            id="id1"/>
+                            </f:facet>
+                            <af:outputText value="#{row.MembershipDate}"
+                                           id="ot44">
+                              <af:convertDateTime pattern="#{bindings.MemberView11.hints.MembershipDate.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column sortProperty="ExpiryDate" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.MemberView11.hints.ExpiryDate.label}"
+                                     id="c47">
+                            <f:facet name="filter">
+                              <af:inputDate value="#{vs.filterCriteria.ExpiryDate}"
+                                            binding="#{backingBeanScope.backing_Library.id2}"
+                                            id="id2"/>
+                            </f:facet>
+                            <af:outputText value="#{row.ExpiryDate}" id="ot46">
+                              <af:convertDateTime pattern="#{bindings.MemberView11.hints.ExpiryDate.format}"/>
+                            </af:outputText>
+                          </af:column>
+                          <af:column id="c10" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb6">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p2"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelBox text="Member Books"
+                                   binding="#{backingBeanScope.backing_Library.pb14}"
+                                   id="pb14">
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.BooksView4.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.BooksView4.rangeSize}"
+                                  emptyText="#{bindings.BooksView4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.BooksView4.rangeSize}"
+                                  rowBandingInterval="0"
+                                  filterModel="#{bindings.BooksView4Query.queryDescriptor}"
+                                  queryListener="#{bindings.BooksView4Query.processQuery}"
+                                  filterVisible="true" varStatus="vs"
+                                  selectedRowKeys="#{bindings.BooksView4.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BooksView4.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.backing_Library.t14}"
+                                  id="t14"
+                                  partialTriggers="::t13 ::cb34 ::cb35 ::cb23">
+                          <af:column sortProperty="BookId" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView4.hints.BookId.label}"
+                                     id="c57">
+                            <af:outputText value="#{row.BookId}" id="ot54"/>
+                          </af:column>
+                          <af:column sortProperty="Title" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView4.hints.Title.label}"
+                                     id="c56">
+                            <af:outputText value="#{row.Title}" id="ot51"/>
+                          </af:column>
+                          <af:column sortProperty="Language" filterable="true"
+                                     sortable="true"
+                                     headerText="#{bindings.BooksView4.hints.Language.label}"
+                                     id="c55">
+                            <af:outputText value="#{row.Language}" id="ot53"/>
+                          </af:column>
+                          <af:column sortProperty="Availability"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.BooksView4.hints.Availability.label}"
+                                     id="c58">
+                            <af:outputText value="#{row.Availability}"
+                                           id="ot55"/>
+                          </af:column>
+                          <af:column sortProperty="Availability"
+                                     filterable="true" sortable="true"
+                                     headerText="#{bindings.BooksView4.hints.Availability.label}"
+                                     id="c54">
+                            <af:outputText value="#{row.Availability}"
+                                           id="ot52"/>
+                          </af:column>
+                          <af:column id="c11" headerText="Edit Info">
+                            <af:commandButton text="Edit" id="cb7">
+                              <af:showPopupBehavior triggerType="action"
+                                                    popupId="::p6"/>
+                            </af:commandButton>
+                          </af:column>
+                        </af:table>
+                      </af:panelBox>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl2}"
+                                           id="pgl2">
+                        <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert1.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb10}"
+                                          id="cb10"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb12}"
+                                          id="cb12"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb15}"
+                                          id="cb15">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl16}"
+                                           id="pgl16">
+                        <af:commandButton actionListener="#{bindings.CreateInsert5.execute}"
+                                          text="CreateInsert"
+                                          disabled="#{!bindings.CreateInsert5.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb35}"
+                                          id="cb35"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Commit"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          binding="#{backingBeanScope.backing_Library.cb36}"
+                                          id="cb36"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Rollback"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true"
+                                          binding="#{backingBeanScope.backing_Library.cb37}"
+                                          id="cb37">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                    </af:panelDashboard>
+                  </f:facet>
+                </af:panelSplitter>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </f:facet>
+          <f:facet name="start">
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl23}"
+                                 id="pgl23" layout="vertical"
+                                 inlineStyle="margin:5%;">
+              <af:image source="/imgs/welcome-png-33299.png"
+                        binding="#{backingBeanScope.backing_Library.i3}"
+                        id="i3" styleClass="AFStretchWidth"
+                        inlineStyle="height:59px; margin:5%;"/>
+              <af:spacer width="10" height="10"
+                         binding="#{backingBeanScope.backing_Library.s3}"
+                         id="s3" inlineStyle="height:30px;"/>
+              <af:panelAccordion binding="#{backingBeanScope.backing_Library.pa1}"
+                                 id="pa1"
+                                 inlineStyle="margin:5px; height:164px;"
+                                 styleClass="AFStretchWidth">
+                <af:showDetailItem text="The Supervisor"
+                                   binding="#{backingBeanScope.backing_Library.sdi1}"
+                                   id="sdi1">
+                  <af:panelGroupLayout layout="vertical"
+                                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                       binding="#{backingBeanScope.backing_Library.pgl21}"
+                                       id="pgl21" inlineStyle="margin:20%;"
+                                       halign="center">
+                    <af:outputText value="- Dr. Amany Sarhan"
+                                   binding="#{backingBeanScope.backing_Library.ot9}"
+                                   id="ot9"
+                                   inlineStyle="font-size:large; vertical-align:middle; color:rgb(70,70,70);"/>
+                    <af:outputText value="- Dr. Moustafa El Hamshary"
+                                   binding="#{backingBeanScope.backing_Library.ot8}"
+                                   id="ot8" inlineStyle="font-size:large;"/>
+                  </af:panelGroupLayout>
+                </af:showDetailItem>
+              </af:panelAccordion>
+              <af:spacer width="10" height="10"
+                         binding="#{backingBeanScope.backing_Library.s4}"
+                         id="s4" inlineStyle="height:20px;"/>
+              <af:panelAccordion binding="#{backingBeanScope.backing_Library.pa2}"
+                                 id="pa2"
+                                 inlineStyle="margin:3%; height:270px;"
+                                 styleClass="AFStretchWidth">
+                <af:showDetailItem text="The Team"
+                                   binding="#{backingBeanScope.backing_Library.sdi2}"
+                                   id="sdi2">
+                  <af:panelGroupLayout layout="vertical"
+                                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                       binding="#{backingBeanScope.backing_Library.pgl20}"
+                                       id="pgl20" inlineStyle="margin:5%;"
+                                       halign="center">
+                    <af:outputText value="- Hossam Osama Al Bahrawy"
+                                   binding="#{backingBeanScope.backing_Library.ot11}"
+                                   id="ot11" inlineStyle="font-size:medium;"/>
+                    <af:outputText value="- Hatem Mohamed Zamzam"
+                                   binding="#{backingBeanScope.backing_Library.ot12}"
+                                   id="ot12" inlineStyle="font-size:medium;"/>
+                    <af:outputText value="- Ahmed Abdulrahman Habiela"
+                                   binding="#{backingBeanScope.backing_Library.ot13}"
+                                   id="ot13" inlineStyle="font-size:medium;"/>
+                    <af:outputText value="- Ahmed Hassan Mohammed Hassan"
+                                   binding="#{backingBeanScope.backing_Library.ot14}"
+                                   id="ot14" inlineStyle="font-size:medium;"/>
+                    <af:outputText value="- Mohammed Ahmed Qassim"
+                                   binding="#{backingBeanScope.backing_Library.ot15}"
+                                   id="ot15" inlineStyle="font-size:medium;"/>
+                  </af:panelGroupLayout>
+                </af:showDetailItem>
+              </af:panelAccordion>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="end">
+            <af:image source="/imgs/bbb.png"
+                      binding="#{backingBeanScope.backing_Library.i2}" id="i2"
+                      inlineStyle="height:100%; width:98%; margin:4%;"/>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl22}"
+                                 id="pgl22" layout="horizontal" valign="top"
+                                 styleClass="x1gc"
+                                 inlineStyle="margin:10px; width:98%;">
+              <af:panelGroupLayout layout="horizontal"
+                                   xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                   binding="#{backingBeanScope.backing_Library.pgl19}"
+                                   id="pgl19" halign="center"
+                                   inlineStyle="text-align:center; height:100px; width:390px;">
+                <af:image source="/imgs/blogo.png"
+                          binding="#{backingBeanScope.backing_Library.i1}"
+                          id="i1"
+                          inlineStyle="height:110px; width:140px;"/>
+                <af:spacer width="11" height="10"
+                           binding="#{backingBeanScope.backing_Library.s1}"
+                           id="s1"/>
+                <strong>
+                  <em>
+                    <af:outputText value="Books"
+                                   binding="#{backingBeanScope.backing_Library.ot6}"
+                                   id="ot6"
+                                   inlineStyle="font-size:60px; color:Maroon;"/></em></strong>
+                <em>
+                  <af:outputText value="library"
+                                 binding="#{backingBeanScope.backing_Library.ot7}"
+                                 id="ot7"
+                                 inlineStyle="font-size:28px; color:rgb(53,48,202); font-family:Verdana, Arial, Helvetica, sans-serif;"/></em>
+              </af:panelGroupLayout>
+              <af:spacer width="730"
+                         binding="#{backingBeanScope.backing_Library.s2}"
+                         id="s2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+        <af:popup binding="#{backingBeanScope.backing_Library.p1}" id="p1"
+                  partialTriggers="t11">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw2}"
+                          id="pw2">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl2}"
+                                id="pfl2">
+              <af:inputText value="#{bindings.Name.inputValue}"
+                            label="#{bindings.Name.hints.label}"
+                            required="#{bindings.Name.hints.mandatory}"
+                            columns="#{bindings.Name.hints.displayWidth}"
+                            maximumLength="#{bindings.Name.hints.precision}"
+                            shortDesc="#{bindings.Name.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it7}"
+                            id="it7">
+                <f:validator binding="#{bindings.Name.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Address.inputValue}"
+                            label="#{bindings.Address.hints.label}"
+                            required="#{bindings.Address.hints.mandatory}"
+                            columns="#{bindings.Address.hints.displayWidth}"
+                            maximumLength="#{bindings.Address.hints.precision}"
+                            shortDesc="#{bindings.Address.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it8}"
+                            id="it8">
+                <f:validator binding="#{bindings.Address.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Email.inputValue}"
+                            label="#{bindings.Email.hints.label}"
+                            required="#{bindings.Email.hints.mandatory}"
+                            columns="#{bindings.Email.hints.displayWidth}"
+                            maximumLength="#{bindings.Email.hints.precision}"
+                            shortDesc="#{bindings.Email.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it9}"
+                            id="it9">
+                <f:validator binding="#{bindings.Email.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                            label="#{bindings.PhoneNumber.hints.label}"
+                            required="#{bindings.PhoneNumber.hints.mandatory}"
+                            columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                            maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                            shortDesc="#{bindings.PhoneNumber.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it10}"
+                            id="it10">
+                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PhoneNumber.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g3}"
+                          id="g3">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl3}"
+                                       id="pgl3">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb8}"
+                                      id="cb8"/>
+                    <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb13}"
+                                      id="cb13"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p2}" id="p2"
+                  partialTriggers="t13">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw1}"
+                          id="pw1">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl1}"
+                                id="pfl1">
+              <af:inputText value="#{bindings.Name1.inputValue}"
+                            label="#{bindings.Name1.hints.label}"
+                            required="#{bindings.Name1.hints.mandatory}"
+                            columns="#{bindings.Name1.hints.displayWidth}"
+                            maximumLength="#{bindings.Name1.hints.precision}"
+                            shortDesc="#{bindings.Name1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it1}"
+                            id="it1">
+                <f:validator binding="#{bindings.Name1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Address1.inputValue}"
+                            label="#{bindings.Address1.hints.label}"
+                            required="#{bindings.Address1.hints.mandatory}"
+                            columns="#{bindings.Address1.hints.displayWidth}"
+                            maximumLength="#{bindings.Address1.hints.precision}"
+                            shortDesc="#{bindings.Address1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it2}"
+                            id="it2">
+                <f:validator binding="#{bindings.Address1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Email1.inputValue}"
+                            label="#{bindings.Email1.hints.label}"
+                            required="#{bindings.Email1.hints.mandatory}"
+                            columns="#{bindings.Email1.hints.displayWidth}"
+                            maximumLength="#{bindings.Email1.hints.precision}"
+                            shortDesc="#{bindings.Email1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it3}"
+                            id="it3">
+                <f:validator binding="#{bindings.Email1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PhoneNumber1.inputValue}"
+                            label="#{bindings.PhoneNumber1.hints.label}"
+                            required="#{bindings.PhoneNumber1.hints.mandatory}"
+                            columns="#{bindings.PhoneNumber1.hints.displayWidth}"
+                            maximumLength="#{bindings.PhoneNumber1.hints.precision}"
+                            shortDesc="#{bindings.PhoneNumber1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it4}"
+                            id="it4">
+                <f:validator binding="#{bindings.PhoneNumber1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PhoneNumber1.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.MembershipDate.inputValue}"
+                            label="#{bindings.MembershipDate.hints.label}"
+                            required="#{bindings.MembershipDate.hints.mandatory}"
+                            shortDesc="#{bindings.MembershipDate.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.id3}"
+                            id="id3">
+                <f:validator binding="#{bindings.MembershipDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.MembershipDate.format}"/>
+              </af:inputDate>
+              <af:inputDate value="#{bindings.ExpiryDate.inputValue}"
+                            label="#{bindings.ExpiryDate.hints.label}"
+                            required="#{bindings.ExpiryDate.hints.mandatory}"
+                            shortDesc="#{bindings.ExpiryDate.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.id4}"
+                            id="id4">
+                <f:validator binding="#{bindings.ExpiryDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.ExpiryDate.format}"/>
+              </af:inputDate>
+              <f:facet name="footer">
+                <af:panelGroupLayout layout="horizontal"
+                                     binding="#{backingBeanScope.backing_Library.pgl1}"
+                                     id="pgl1">
+                  <af:commandButton text="Submit"
+                                    binding="#{backingBeanScope.backing_Library.cb16}"
+                                    id="cb16"/>
+                  <af:commandButton actionListener="#{bindings.Delete1.execute}"
+                                    text="Delete"
+                                    disabled="#{!bindings.Delete1.enabled}"
+                                    binding="#{backingBeanScope.backing_Library.cb11}"
+                                    id="cb11"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p3}" id="p3"
+                  partialTriggers="t3">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw3}"
+                          id="pw3">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl3}"
+                                id="pfl3">
+              <af:inputText value="#{bindings.Name2.inputValue}"
+                            label="#{bindings.Name2.hints.label}"
+                            required="#{bindings.Name2.hints.mandatory}"
+                            columns="#{bindings.Name2.hints.displayWidth}"
+                            maximumLength="#{bindings.Name2.hints.precision}"
+                            shortDesc="#{bindings.Name2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it5}"
+                            id="it5">
+                <f:validator binding="#{bindings.Name2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Address2.inputValue}"
+                            label="#{bindings.Address2.hints.label}"
+                            required="#{bindings.Address2.hints.mandatory}"
+                            columns="#{bindings.Address2.hints.displayWidth}"
+                            maximumLength="#{bindings.Address2.hints.precision}"
+                            shortDesc="#{bindings.Address2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it6}"
+                            id="it6">
+                <f:validator binding="#{bindings.Address2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Email2.inputValue}"
+                            label="#{bindings.Email2.hints.label}"
+                            required="#{bindings.Email2.hints.mandatory}"
+                            columns="#{bindings.Email2.hints.displayWidth}"
+                            maximumLength="#{bindings.Email2.hints.precision}"
+                            shortDesc="#{bindings.Email2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it11}"
+                            id="it11">
+                <f:validator binding="#{bindings.Email2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PhoneNumber2.inputValue}"
+                            label="#{bindings.PhoneNumber2.hints.label}"
+                            required="#{bindings.PhoneNumber2.hints.mandatory}"
+                            columns="#{bindings.PhoneNumber2.hints.displayWidth}"
+                            maximumLength="#{bindings.PhoneNumber2.hints.precision}"
+                            shortDesc="#{bindings.PhoneNumber2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it12}"
+                            id="it12">
+                <f:validator binding="#{bindings.PhoneNumber2.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PhoneNumber2.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g1}"
+                          id="g1">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl4}"
+                                       id="pgl4">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb17}"
+                                      id="cb17"/>
+                    <af:commandButton actionListener="#{bindings.Delete2.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete2.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb18}"
+                                      id="cb18"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p4}" id="p4"
+                  partialTriggers="t2">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw4}"
+                          id="pw4">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl4}"
+                                id="pfl4">
+              <af:inputText value="#{bindings.Title.inputValue}"
+                            label="#{bindings.Title.hints.label}"
+                            required="#{bindings.Title.hints.mandatory}"
+                            columns="#{bindings.Title.hints.displayWidth}"
+                            maximumLength="#{bindings.Title.hints.precision}"
+                            shortDesc="#{bindings.Title.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it13}"
+                            id="it13">
+                <f:validator binding="#{bindings.Title.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Language.inputValue}"
+                            label="#{bindings.Language.hints.label}"
+                            required="#{bindings.Language.hints.mandatory}"
+                            columns="#{bindings.Language.hints.displayWidth}"
+                            maximumLength="#{bindings.Language.hints.precision}"
+                            shortDesc="#{bindings.Language.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it14}"
+                            id="it14">
+                <f:validator binding="#{bindings.Language.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Availability.inputValue}"
+                            label="#{bindings.Availability.hints.label}"
+                            required="#{bindings.Availability.hints.mandatory}"
+                            columns="#{bindings.Availability.hints.displayWidth}"
+                            maximumLength="#{bindings.Availability.hints.precision}"
+                            shortDesc="#{bindings.Availability.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it15}"
+                            id="it15">
+                <f:validator binding="#{bindings.Availability.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Price.inputValue}"
+                            label="#{bindings.Price.hints.label}"
+                            required="#{bindings.Price.hints.mandatory}"
+                            columns="#{bindings.Price.hints.displayWidth}"
+                            maximumLength="#{bindings.Price.hints.precision}"
+                            shortDesc="#{bindings.Price.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it16}"
+                            id="it16">
+                <f:validator binding="#{bindings.Price.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.AuthorId.inputValue}"
+                            label="#{bindings.AuthorId.hints.label}"
+                            required="#{bindings.AuthorId.hints.mandatory}"
+                            columns="#{bindings.AuthorId.hints.displayWidth}"
+                            maximumLength="#{bindings.AuthorId.hints.precision}"
+                            shortDesc="#{bindings.AuthorId.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it17}"
+                            id="it17">
+                <f:validator binding="#{bindings.AuthorId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AuthorId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PublisherId.inputValue}"
+                            label="#{bindings.PublisherId.hints.label}"
+                            required="#{bindings.PublisherId.hints.mandatory}"
+                            columns="#{bindings.PublisherId.hints.displayWidth}"
+                            maximumLength="#{bindings.PublisherId.hints.precision}"
+                            shortDesc="#{bindings.PublisherId.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it18}"
+                            id="it18">
+                <f:validator binding="#{bindings.PublisherId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PublisherId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.MemberId.inputValue}"
+                            label="#{bindings.MemberId.hints.label}"
+                            required="#{bindings.MemberId.hints.mandatory}"
+                            columns="#{bindings.MemberId.hints.displayWidth}"
+                            maximumLength="#{bindings.MemberId.hints.precision}"
+                            shortDesc="#{bindings.MemberId.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it19}"
+                            id="it19">
+                <f:validator binding="#{bindings.MemberId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MemberId.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g2}"
+                          id="g2">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl10}"
+                                       id="pgl10">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb22}"
+                                      id="cb22"/>
+                    <af:commandButton actionListener="#{bindings.Delete3.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete3.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb23}"
+                                      id="cb23"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p5}" id="p5"
+                  partialTriggers="t12">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw5}"
+                          id="pw5">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl5}"
+                                id="pfl5">
+              <af:inputText value="#{bindings.Title1.inputValue}"
+                            label="#{bindings.Title1.hints.label}"
+                            required="#{bindings.Title1.hints.mandatory}"
+                            columns="#{bindings.Title1.hints.displayWidth}"
+                            maximumLength="#{bindings.Title1.hints.precision}"
+                            shortDesc="#{bindings.Title1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it20}"
+                            id="it20">
+                <f:validator binding="#{bindings.Title1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Language1.inputValue}"
+                            label="#{bindings.Language1.hints.label}"
+                            required="#{bindings.Language1.hints.mandatory}"
+                            columns="#{bindings.Language1.hints.displayWidth}"
+                            maximumLength="#{bindings.Language1.hints.precision}"
+                            shortDesc="#{bindings.Language1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it21}"
+                            id="it21">
+                <f:validator binding="#{bindings.Language1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Availability1.inputValue}"
+                            label="#{bindings.Availability1.hints.label}"
+                            required="#{bindings.Availability1.hints.mandatory}"
+                            columns="#{bindings.Availability1.hints.displayWidth}"
+                            maximumLength="#{bindings.Availability1.hints.precision}"
+                            shortDesc="#{bindings.Availability1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it22}"
+                            id="it22">
+                <f:validator binding="#{bindings.Availability1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Price1.inputValue}"
+                            label="#{bindings.Price1.hints.label}"
+                            required="#{bindings.Price1.hints.mandatory}"
+                            columns="#{bindings.Price1.hints.displayWidth}"
+                            maximumLength="#{bindings.Price1.hints.precision}"
+                            shortDesc="#{bindings.Price1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it23}"
+                            id="it23">
+                <f:validator binding="#{bindings.Price1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price1.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.AuthorId1.inputValue}"
+                            label="#{bindings.AuthorId1.hints.label}"
+                            required="#{bindings.AuthorId1.hints.mandatory}"
+                            columns="#{bindings.AuthorId1.hints.displayWidth}"
+                            maximumLength="#{bindings.AuthorId1.hints.precision}"
+                            shortDesc="#{bindings.AuthorId1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it24}"
+                            id="it24">
+                <f:validator binding="#{bindings.AuthorId1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AuthorId1.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PublisherId1.inputValue}"
+                            label="#{bindings.PublisherId1.hints.label}"
+                            required="#{bindings.PublisherId1.hints.mandatory}"
+                            columns="#{bindings.PublisherId1.hints.displayWidth}"
+                            maximumLength="#{bindings.PublisherId1.hints.precision}"
+                            shortDesc="#{bindings.PublisherId1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it25}"
+                            id="it25">
+                <f:validator binding="#{bindings.PublisherId1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PublisherId1.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.MemberId1.inputValue}"
+                            label="#{bindings.MemberId1.hints.label}"
+                            required="#{bindings.MemberId1.hints.mandatory}"
+                            columns="#{bindings.MemberId1.hints.displayWidth}"
+                            maximumLength="#{bindings.MemberId1.hints.precision}"
+                            shortDesc="#{bindings.MemberId1.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it26}"
+                            id="it26">
+                <f:validator binding="#{bindings.MemberId1.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MemberId1.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g4}"
+                          id="g4">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl14}"
+                                       id="pgl14">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb31}"
+                                      id="cb31"/>
+                    <af:commandButton actionListener="#{bindings.Delete4.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete4.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb32}"
+                                      id="cb32"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p6}" id="p6"
+                  partialTriggers="t14">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw6}"
+                          id="pw6">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl6}"
+                                id="pfl6">
+              <af:inputText value="#{bindings.Title2.inputValue}"
+                            label="#{bindings.Title2.hints.label}"
+                            required="#{bindings.Title2.hints.mandatory}"
+                            columns="#{bindings.Title2.hints.displayWidth}"
+                            maximumLength="#{bindings.Title2.hints.precision}"
+                            shortDesc="#{bindings.Title2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it27}"
+                            id="it27">
+                <f:validator binding="#{bindings.Title2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Language2.inputValue}"
+                            label="#{bindings.Language2.hints.label}"
+                            required="#{bindings.Language2.hints.mandatory}"
+                            columns="#{bindings.Language2.hints.displayWidth}"
+                            maximumLength="#{bindings.Language2.hints.precision}"
+                            shortDesc="#{bindings.Language2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it28}"
+                            id="it28">
+                <f:validator binding="#{bindings.Language2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Availability2.inputValue}"
+                            label="#{bindings.Availability2.hints.label}"
+                            required="#{bindings.Availability2.hints.mandatory}"
+                            columns="#{bindings.Availability2.hints.displayWidth}"
+                            maximumLength="#{bindings.Availability2.hints.precision}"
+                            shortDesc="#{bindings.Availability2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it29}"
+                            id="it29">
+                <f:validator binding="#{bindings.Availability2.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Price2.inputValue}"
+                            label="#{bindings.Price2.hints.label}"
+                            required="#{bindings.Price2.hints.mandatory}"
+                            columns="#{bindings.Price2.hints.displayWidth}"
+                            maximumLength="#{bindings.Price2.hints.precision}"
+                            shortDesc="#{bindings.Price2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it30}"
+                            id="it30">
+                <f:validator binding="#{bindings.Price2.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price2.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.AuthorId2.inputValue}"
+                            label="#{bindings.AuthorId2.hints.label}"
+                            required="#{bindings.AuthorId2.hints.mandatory}"
+                            columns="#{bindings.AuthorId2.hints.displayWidth}"
+                            maximumLength="#{bindings.AuthorId2.hints.precision}"
+                            shortDesc="#{bindings.AuthorId2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it31}"
+                            id="it31">
+                <f:validator binding="#{bindings.AuthorId2.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AuthorId2.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PublisherId2.inputValue}"
+                            label="#{bindings.PublisherId2.hints.label}"
+                            required="#{bindings.PublisherId2.hints.mandatory}"
+                            columns="#{bindings.PublisherId2.hints.displayWidth}"
+                            maximumLength="#{bindings.PublisherId2.hints.precision}"
+                            shortDesc="#{bindings.PublisherId2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it32}"
+                            id="it32">
+                <f:validator binding="#{bindings.PublisherId2.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PublisherId2.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.MemberId2.inputValue}"
+                            label="#{bindings.MemberId2.hints.label}"
+                            required="#{bindings.MemberId2.hints.mandatory}"
+                            columns="#{bindings.MemberId2.hints.displayWidth}"
+                            maximumLength="#{bindings.MemberId2.hints.precision}"
+                            shortDesc="#{bindings.MemberId2.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it33}"
+                            id="it33">
+                <f:validator binding="#{bindings.MemberId2.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MemberId2.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g5}"
+                          id="g5">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl15}"
+                                       id="pgl15">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb33}"
+                                      id="cb33"/>
+                    <af:commandButton actionListener="#{bindings.Delete5.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete5.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb34}"
+                                      id="cb34"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup binding="#{backingBeanScope.backing_Library.p7}" id="p7"
+                  partialTriggers="t4">
+          <af:panelWindow binding="#{backingBeanScope.backing_Library.pw7}"
+                          id="pw7">
+            <af:panelFormLayout binding="#{backingBeanScope.backing_Library.pfl7}"
+                                id="pfl7">
+              <af:inputText value="#{bindings.Title3.inputValue}"
+                            label="#{bindings.Title3.hints.label}"
+                            required="#{bindings.Title3.hints.mandatory}"
+                            columns="#{bindings.Title3.hints.displayWidth}"
+                            maximumLength="#{bindings.Title3.hints.precision}"
+                            shortDesc="#{bindings.Title3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it34}"
+                            id="it34">
+                <f:validator binding="#{bindings.Title3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Language3.inputValue}"
+                            label="#{bindings.Language3.hints.label}"
+                            required="#{bindings.Language3.hints.mandatory}"
+                            columns="#{bindings.Language3.hints.displayWidth}"
+                            maximumLength="#{bindings.Language3.hints.precision}"
+                            shortDesc="#{bindings.Language3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it35}"
+                            id="it35">
+                <f:validator binding="#{bindings.Language3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Availability3.inputValue}"
+                            label="#{bindings.Availability3.hints.label}"
+                            required="#{bindings.Availability3.hints.mandatory}"
+                            columns="#{bindings.Availability3.hints.displayWidth}"
+                            maximumLength="#{bindings.Availability3.hints.precision}"
+                            shortDesc="#{bindings.Availability3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it36}"
+                            id="it36">
+                <f:validator binding="#{bindings.Availability3.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Price3.inputValue}"
+                            label="#{bindings.Price3.hints.label}"
+                            required="#{bindings.Price3.hints.mandatory}"
+                            columns="#{bindings.Price3.hints.displayWidth}"
+                            maximumLength="#{bindings.Price3.hints.precision}"
+                            shortDesc="#{bindings.Price3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it37}"
+                            id="it37">
+                <f:validator binding="#{bindings.Price3.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price3.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.AuthorId3.inputValue}"
+                            label="#{bindings.AuthorId3.hints.label}"
+                            required="#{bindings.AuthorId3.hints.mandatory}"
+                            columns="#{bindings.AuthorId3.hints.displayWidth}"
+                            maximumLength="#{bindings.AuthorId3.hints.precision}"
+                            shortDesc="#{bindings.AuthorId3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it38}"
+                            id="it38">
+                <f:validator binding="#{bindings.AuthorId3.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AuthorId3.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PublisherId3.inputValue}"
+                            label="#{bindings.PublisherId3.hints.label}"
+                            required="#{bindings.PublisherId3.hints.mandatory}"
+                            columns="#{bindings.PublisherId3.hints.displayWidth}"
+                            maximumLength="#{bindings.PublisherId3.hints.precision}"
+                            shortDesc="#{bindings.PublisherId3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it39}"
+                            id="it39">
+                <f:validator binding="#{bindings.PublisherId3.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PublisherId3.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.MemberId3.inputValue}"
+                            label="#{bindings.MemberId3.hints.label}"
+                            required="#{bindings.MemberId3.hints.mandatory}"
+                            columns="#{bindings.MemberId3.hints.displayWidth}"
+                            maximumLength="#{bindings.MemberId3.hints.precision}"
+                            shortDesc="#{bindings.MemberId3.hints.tooltip}"
+                            binding="#{backingBeanScope.backing_Library.it40}"
+                            id="it40">
+                <f:validator binding="#{bindings.MemberId3.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MemberId3.format}"/>
+              </af:inputText>
+              <f:facet name="footer">
+                <af:group binding="#{backingBeanScope.backing_Library.g6}"
+                          id="g6">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_Library.pgl17}"
+                                       id="pgl17">
+                    <af:commandButton text="Submit"
+                                      binding="#{backingBeanScope.backing_Library.cb38}"
+                                      id="cb38"/>
+                    <af:commandButton actionListener="#{bindings.Delete6.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete6.enabled}"
+                                      binding="#{backingBeanScope.backing_Library.cb39}"
+                                      id="cb39"/>
+                  </af:panelGroupLayout>
+                </af:group>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Library-->
+</jsp:root>

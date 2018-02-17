@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name id="__4">backing_Library</managed-bean-name>
+    <managed-bean-class id="__3">view.backing.Library</managed-bean-class>
+    <managed-bean-scope id="__2">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Library.jspx-->
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name id="__7">backing_bookLibrary</managed-bean-name>
+    <managed-bean-class id="__6">view.backing.BookLibrary</managed-bean-class>
+    <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1bookLibrary.jspx-->
+  </managed-bean>
+</adfc-config>

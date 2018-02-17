@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BooksView"
+  Version="11.1.1.59.23"
+  SelectList="Books.TITLE, 
+       Books.PRICE, 
+       Books.LANGUAGE, 
+       Books.BOOK_ID, 
+       Books.AVAILABILITY, 
+       Books.AUTHOR_ID, 
+       Books.PUBLISHER_ID, 
+       Books.MEMBER_ID"
+  FromList="BOOKS Books"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Books"
+    Entity="model.Books"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="Books"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="Price"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Price"
+    EntityUsage="Books"
+    AliasName="PRICE"/>
+  <ViewAttribute
+    Name="Language"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Language"
+    EntityUsage="Books"
+    AliasName="LANGUAGE"/>
+  <ViewAttribute
+    Name="BookId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BookId"
+    EntityUsage="Books"
+    AliasName="BOOK_ID"/>
+  <ViewAttribute
+    Name="Availability"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Availability"
+    EntityUsage="Books"
+    AliasName="AVAILABILITY"/>
+  <ViewAttribute
+    Name="AuthorId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AuthorId"
+    EntityUsage="Books"
+    AliasName="AUTHOR_ID"/>
+  <ViewAttribute
+    Name="PublisherId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PublisherId"
+    EntityUsage="Books"
+    AliasName="PUBLISHER_ID"/>
+  <ViewAttribute
+    Name="MemberId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MemberId"
+    EntityUsage="Books"
+    AliasName="MEMBER_ID"/>
+</ViewObject>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuthorView"
+  Version="11.1.1.59.23"
+  SelectList="Author.EMAIL, 
+       Author.ADDRESS, 
+       Author.NAME, 
+       Author.AUTHOR_ID, 
+       Author.PHONE_NUMBER"
+  FromList="AUTHOR Author"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Author"
+    Entity="model.Author"/>
+  <ViewAttribute
+    Name="Email"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="Author"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="Address"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Address"
+    EntityUsage="Author"
+    AliasName="ADDRESS"/>
+  <ViewAttribute
+    Name="Name"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="Author"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="AuthorId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AuthorId"
+    EntityUsage="Author"
+    AliasName="AUTHOR_ID"/>
+  <ViewAttribute
+    Name="PhoneNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="Author"
+    AliasName="PHONE_NUMBER"/>
+  <ViewLinkAccessor
+    Name="BooksView"
+    ViewLink="model.SysC007316Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

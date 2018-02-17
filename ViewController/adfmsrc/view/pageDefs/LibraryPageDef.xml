@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="LibraryPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BooksView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="BooksView1Iterator"/>
+    <searchRegion Binds="BooksView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BooksView1Query"/>
+    <iterator Binds="PublisherView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="PublisherView1Iterator"/>
+    <searchRegion Binds="PublisherView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PublisherView1Query"/>
+    <iterator Binds="AuthorView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="AuthorView1Iterator"/>
+    <searchRegion Binds="AuthorView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="AuthorView1Query"/>
+    <iterator Binds="MemberView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MemberView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="MemberView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MemberView1Query"/>
+    <iterator Binds="BooksView2" RangeSize="25"
+              DataControl="AppModuleDataControl" id="BooksView2Iterator"/>
+    <searchRegion Binds="BooksView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BooksView2Query"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PublisherView1Iterator"
+                  id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AuthorView1Iterator" id="ImplicitViewCriteriaQuery1"/>
+    <iterator Binds="BooksView3" RangeSize="25"
+              DataControl="AppModuleDataControl" id="BooksView3Iterator"/>
+    <searchRegion Binds="BooksView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BooksView3Query"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MemberView1Iterator" id="ImplicitViewCriteriaQuery2"/>
+    <iterator Binds="BooksView4" RangeSize="25"
+              DataControl="AppModuleDataControl" id="BooksView4Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="BooksView4Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BooksView4Query"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="BooksView1Iterator" id="ImplicitViewCriteriaQuery3"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BooksView1Iterator" id="BooksView1">
+      <nodeDefinition DefName="model.BooksView" Name="BooksView10">
+        <AttrNames>
+          <Item Value="BookId"/>
+          <Item Value="Title"/>
+          <Item Value="Language"/>
+          <Item Value="Availability"/>
+          <Item Value="Price"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PublisherView1Iterator" id="PublisherView11">
+      <nodeDefinition DefName="model.PublisherView" Name="PublisherView110">
+        <AttrNames>
+          <Item Value="PublisherId"/>
+          <Item Value="Name"/>
+          <Item Value="Address"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BooksView2Iterator" id="BooksView2">
+      <nodeDefinition DefName="model.BooksView" Name="BooksView20">
+        <AttrNames>
+          <Item Value="BookId"/>
+          <Item Value="Title"/>
+          <Item Value="Language"/>
+          <Item Value="Availability"/>
+          <Item Value="Price"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AuthorView1Iterator" id="AuthorView11">
+      <nodeDefinition DefName="model.AuthorView" Name="AuthorView110">
+        <AttrNames>
+          <Item Value="AuthorId"/>
+          <Item Value="Name"/>
+          <Item Value="Address"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BooksView3Iterator" id="BooksView3">
+      <nodeDefinition DefName="model.BooksView" Name="BooksView30">
+        <AttrNames>
+          <Item Value="BookId"/>
+          <Item Value="Title"/>
+          <Item Value="Language"/>
+          <Item Value="Availability"/>
+          <Item Value="Price"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MemberView1Iterator" id="MemberView11">
+      <nodeDefinition DefName="model.MemberView" Name="MemberView110">
+        <AttrNames>
+          <Item Value="MemberId"/>
+          <Item Value="Name"/>
+          <Item Value="Address"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="MembershipDate"/>
+          <Item Value="ExpiryDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BooksView4Iterator" id="BooksView4">
+      <nodeDefinition DefName="model.BooksView" Name="BooksView40">
+        <AttrNames>
+          <Item Value="BookId"/>
+          <Item Value="Title"/>
+          <Item Value="Language"/>
+          <Item Value="Availability"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AuthorView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <attributeValues IterBinding="MemberView1Iterator" id="Name1">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MemberView1Iterator" id="Address1">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MemberView1Iterator" id="Email1">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MemberView1Iterator" id="PhoneNumber1">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MemberView1Iterator" id="MembershipDate">
+      <AttrNames>
+        <Item Value="MembershipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MemberView1Iterator" id="ExpiryDate">
+      <AttrNames>
+        <Item Value="ExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="MemberView1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="MemberView1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="PublisherView1Iterator" id="Name2">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PublisherView1Iterator" id="Address2">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PublisherView1Iterator" id="Email2">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PublisherView1Iterator" id="PhoneNumber2">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PublisherView1Iterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="PublisherView1Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="BooksView1Iterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="Language">
+      <AttrNames>
+        <Item Value="Language"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="Availability">
+      <AttrNames>
+        <Item Value="Availability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="AuthorId">
+      <AttrNames>
+        <Item Value="AuthorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="PublisherId">
+      <AttrNames>
+        <Item Value="PublisherId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView1Iterator" id="MemberId">
+      <AttrNames>
+        <Item Value="MemberId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BooksView1Iterator" id="Delete3"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="BooksView1Iterator" id="CreateInsert3"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="AuthorView1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AuthorView1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AuthorView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AuthorView1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AuthorView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="BooksView3Iterator" id="CreateInsert4"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="BooksView3Iterator" id="Title1">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="Language1">
+      <AttrNames>
+        <Item Value="Language"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="Availability1">
+      <AttrNames>
+        <Item Value="Availability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="Price1">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="AuthorId1">
+      <AttrNames>
+        <Item Value="AuthorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="PublisherId1">
+      <AttrNames>
+        <Item Value="PublisherId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView3Iterator" id="MemberId1">
+      <AttrNames>
+        <Item Value="MemberId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BooksView3Iterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="BooksView4Iterator" id="Title2">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="Language2">
+      <AttrNames>
+        <Item Value="Language"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="Availability2">
+      <AttrNames>
+        <Item Value="Availability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="Price2">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="AuthorId2">
+      <AttrNames>
+        <Item Value="AuthorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="PublisherId2">
+      <AttrNames>
+        <Item Value="PublisherId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView4Iterator" id="MemberId2">
+      <AttrNames>
+        <Item Value="MemberId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BooksView4Iterator" id="Delete5"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="BooksView4Iterator" id="CreateInsert5"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="BooksView2Iterator" id="Title3">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="Language3">
+      <AttrNames>
+        <Item Value="Language"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="Availability3">
+      <AttrNames>
+        <Item Value="Availability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="Price3">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="AuthorId3">
+      <AttrNames>
+        <Item Value="AuthorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="PublisherId3">
+      <AttrNames>
+        <Item Value="PublisherId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksView2Iterator" id="MemberId3">
+      <AttrNames>
+        <Item Value="MemberId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BooksView2Iterator" id="Delete6"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="BooksView2Iterator" id="CreateInsert6"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>
